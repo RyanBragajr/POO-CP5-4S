@@ -5,11 +5,12 @@
 
 ## Identificação
 
-**Grupo:** Individual (Ryan Amorim)
+**Grupo:** Ryan Amorim e Henrique Mandrick
 
 | Integrante | RM | Turma |
 |---|---|---|
 | Ryan Amorim de Castro Santana | 564393 | 2CCPW |
+| Henrique Mandrick | 562715 | 2CCPW |
 
 | Campo | |
 |---|---|
