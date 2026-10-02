@@ -147,7 +147,6 @@ Com pouco tempo, eu priorizaria o caminho feliz e os caminhos de erro das regras
 
 ## Parte 5 — Espaço livre (opcional)
 
-Alguma dificuldade, dúvida ou comentário sobre o checkpoint?
 
 ```
 
