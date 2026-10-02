@@ -148,7 +148,16 @@ Com pouco tempo, eu priorizaria o caminho feliz e os caminhos de erro das regras
 
 ## Parte 5 — Espaço livre (opcional)
 
+**Como a suíte foi validada:** rodei `mvn test` (Maven 3.9.16, JDK 21; o `pom.xml` continua em Java 17). Resultado: 26 testes, 0 falhas, sendo 20 entregues e 6 novos.
 
-```
+**Testes entregues:** nenhum dos 20 foi alterado. Os 6 testes novos foram *adicionados* às classes existentes (`BanhoTest`, `TosaTest` e `AgendaServiceTest`); o diff dessas classes contém apenas linhas inseridas.
 
-```
+**Ordem dos commits:** os 4 testes que ficaram vermelhos (teste01 a teste04) foram commitados *antes* da correção correspondente (bug08 a bug11), para o histórico mostrar o teste falhando e depois a correção. O bug12 (`@Id` sem `@GeneratedValue`) não aparece em nenhum teste: só se descobre lendo a entidade, ou ao tentar `save()` com a API no ar.
+
+**Decisão no bug12:** usei `GenerationType.AUTO` (e não `IDENTITY`) para o mapeamento funcionar tanto no Oracle da FIAP quanto no H2 em memória, sem depender da versão do banco.
+
+**Limitação:** a API não foi executada contra o Oracle da FIAP (as credenciais não foram usadas); a validação foi feita pela suíte unitária, que não usa banco. O `application.properties` permanece com `SEU_RM`/`SUA_SENHA`.
+
+**Observação sobre o aviso do Mockito:** ao rodar os testes aparece um aviso de que o Mockito está se anexando dinamicamente à JVM (*self-attaching*). É apenas um aviso do JDK recente e não afeta o resultado.
+
+**Possível melhoria futura (fora do escopo do checkpoint):** o `GeradorProtocolo` reinicia a contagem a cada execução da aplicação e não é persistido, então os protocolos voltam ao 1 depois de reiniciar a API. Em um sistema real, o número viria do banco (sequence).
